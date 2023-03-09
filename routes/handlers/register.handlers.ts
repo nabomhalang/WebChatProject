@@ -12,7 +12,6 @@ export default new HandlersClass({
 
         try {
             const { email, user, pass, disp, sex } = req.body;
-            // console.log(email, user, pass, disp, sex)
 
             var _r: string[] | string = await mysql.query("SELECT * FROM USER WHERE userEmail=? OR userID=?", [email, user])
             if (_r.length) {

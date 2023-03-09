@@ -25,7 +25,7 @@ export default new HandlersClass({
             return res.status(401).json({
                 c: 401,
                 d: "Unauthorized",
-                e: "사용자 이름, 이메일 또는 비밀번호가 잘못되었습니다."
+                m: "사용자 이름, 이메일 또는 비밀번호가 잘못되었습니다."
             });
         }
 
@@ -44,12 +44,13 @@ export default new HandlersClass({
 
         return res.status(200).json({
             c: 200,
-            d: "Login Success"
+            d: null,
+            m: "Login Success"
         });
     },
     path: "/login",
     scheme: object({
         user: string().required(),
-        pass: string().required(),
+        pass: string().min(8).required(),
     })
 })

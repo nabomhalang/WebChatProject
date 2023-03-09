@@ -13,7 +13,6 @@ import { InferType } from 'yup';
 export default async function prepare(app: Application): Promise<void> {
     const __dirname: string = path.dirname(fileURLToPath(import.meta.url))
 
-    /** @type {import("./controllers/db.controllers")} */
     const mysql = new MysqlConn({ config: null, sql: null });
 
     await new Promise((resolve, reject) => {
